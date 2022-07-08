@@ -1,4 +1,4 @@
-# gitignore created on 02/09/22 at 12:16
+# gitignore created on 07/08/22 at 10:02
 # Disable reminder in prompt
 ignoredirmessage
 
@@ -10,10 +10,11 @@ ignoredirmessage
 .Trashes
 ehthumbs.db
 Thumbs.db
+Desktop.ini
 
 # Other
 .installed
 
-
 # ignore commit message
 .gitcommit
+
