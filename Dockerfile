@@ -35,6 +35,7 @@ WORKDIR /root
 VOLUME ["/root","/config"]
 
 EXPOSE 5984
+EXPOSE 8091
 
 COPY --from=build /. /
 
