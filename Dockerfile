@@ -1,4 +1,4 @@
-FROM casjaysdev/rockylinux:latest as build
+FROM --platform=amd64 casjaysdev/rockylinux:latest as build
 
 RUN set -xe \
   dnf install -y yum-utils && \
