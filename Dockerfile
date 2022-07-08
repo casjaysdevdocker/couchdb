@@ -1,7 +1,9 @@
 FROM --platform=amd64 casjaysdev/rockylinux:latest as build
 
-RUN set -xe \
-  dnf install -y yum-utils && \
+RUN set -xe; \
+  dnf update -y && \
+  dnf install -y \
+  yum-utils && \
   yum-config-manager --add-repo https://couchdb.apache.org/repo/couchdb.repo && \
   dnf install -y couchdb jq
 
