@@ -1,8 +1,9 @@
 FROM casjaysdev/rockylinux:latest as build
 
-RUN yum install -y yum-utils && \
-  yum-config-manager --add-repo https://couchdb.apache.org/repo/couchdb.repo && \
-  yum install -y couchdb jq
+RUN set -xe \
+  dnf install -y yum-utils && \
+  dnf-config-manager --add-repo https://couchdb.apache.org/repo/couchdb.repo && \
+  dnf install -y couchdb jq
 
 COPY ./bin/. /usr/local/bin/
 COPY ./config/. /config/
