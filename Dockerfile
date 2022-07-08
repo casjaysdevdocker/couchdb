@@ -2,9 +2,7 @@ FROM casjaysdev/rockylinux:latest as build
 
 RUN yum install -y yum-utils && \
   yum-config-manager --add-repo https://couchdb.apache.org/repo/couchdb.repo && \
-  yum install -y couchdb jq && \
-  groupadd -g 5984 -r couchdb && \
-  useradd -u 5984 -d /data/couchdb -g couchdb couchdb
+  yum install -y couchdb jq
 
 COPY ./bin/. /usr/local/bin/
 COPY ./config/. /config/
