@@ -1,4 +1,4 @@
-FROM --platform=amd64 casjaysdev/rockylinux:latest as build
+FROM --platform=amd64 casjaysdevdocker/rockylinux:latest as build
 
 RUN set -xe; \
   dnf update -y && \
@@ -22,7 +22,7 @@ LABEL org.label-schema.name="couchdb" \
   org.label-schema.build-date=$BUILD_DATE \
   org.label-schema.version=$BUILD_DATE \
   org.label-schema.vcs-ref=$BUILD_DATE \
-  org.label-schema.license="MIT" \
+  org.label-schema.license="WTFPL" \
   org.label-schema.vcs-type="Git" \
   org.label-schema.schema-version="latest" \
   org.label-schema.vendor="CasjaysDev" \
