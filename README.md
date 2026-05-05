@@ -19,17 +19,17 @@ dockermgr update couchdb
 ## Install and run container
   
 ```shell
-mkdir -p "$HOME/.local/share/srv/docker/couchdb/rootfs"
+mkdir -p "$HOME/.local/share/srv/docker/couchdb/volumes"
 git clone "https://github.com/dockermgr/couchdb" "$HOME/.local/share/CasjaysDev/dockermgr/couchdb"
-cp -Rfva "$HOME/.local/share/CasjaysDev/dockermgr/couchdb/rootfs/." "$HOME/.local/share/srv/docker/couchdb/rootfs/"
+cp -Rfva "$HOME/.local/share/CasjaysDev/dockermgr/couchdb/rootfs/." "$HOME/.local/share/srv/docker/couchdb/volumes/"
 docker run -d \
 --restart always \
 --privileged \
 --name casjaysdevdocker-couchdb \
 --hostname couchdb \
 -e TZ=${TIMEZONE:-America/New_York} \
--v $HOME/.local/share/srv/docker/casjaysdevdocker-couchdb/rootfs/data:/data:z \
--v $HOME/.local/share/srv/docker/casjaysdevdocker-couchdb/rootfs/config:/config:z \
+-v $HOME/.local/share/srv/docker/casjaysdevdocker-couchdb/volumes/data:/data:z \
+-v $HOME/.local/share/srv/docker/casjaysdevdocker-couchdb/volumes/config:/config:z \
 -p 80:80 \
 casjaysdevdocker/couchdb:latest
 ```
@@ -46,8 +46,8 @@ services:
       - TZ=America/New_York
       - HOSTNAME=couchdb
     volumes:
-      - $HOME/.local/share/srv/docker/casjaysdevdocker-couchdb/rootfs/data:/data:z
-      - $HOME/.local/share/srv/docker/casjaysdevdocker-couchdb/rootfs/config:/config:z
+      - $HOME/.local/share/srv/docker/casjaysdevdocker-couchdb/volumes/data:/data:z
+      - $HOME/.local/share/srv/docker/casjaysdevdocker-couchdb/volumes/config:/config:z
     ports:
       - 80:80
     restart: always
